@@ -1,31 +1,36 @@
-# 云吞插件模板
+# wonton-plugin-excalidraw
 
-开发流程见[插件开发指南](https://github.com/geraldpeng6/wonton-docs/blob/main/develop.md)。
+云吞（Wonton）插件：[Excalidraw](https://excalidraw.com) 手绘风白板。画布完全在浏览器里运行，
+服务端只发静态页面；画布内容保存在浏览器的本地存储里，不经过、也不留在服务器上。
 
-这是一个能安装的示例插件 `app.example.hello`：使用 nginx 官方镜像显示问候页，经网关的 `sso: proxy` 注入用户名，页面显示“你好，<用户名>”。示例没有应用账号、持久化数据或 MCP 工具。
-
-## 示例文件
-
-| 路径 | 内容 |
-| --- | --- |
-| `docker-compose.yml` | 示例清单、nginx 服务和三个 `configs` |
-| `web/default.conf.template` | nginx 配置，启用 SSI 回显用户名并提供健康检查入口；只放行来自核心地址（`${WONTON_CORE_ADDRESS}`）的请求，其余来源 403 |
-| `web/index.html` | 问候页 |
-| `web/tokens.css` | 页面主题变量的后备值 |
-| `tabs/` | 示例主页的底栏图标 |
-| `screenshots/home.png` | 商店详情页的示例截图 |
-| `scripts/smoke-probes.sh` | 检查真实页面和网关注入身份的插件探针 |
-
-从模板创建自己的插件后，替换示例清单、网页和素材；具体步骤见[写插件](https://github.com/geraldpeng6/wonton-docs/blob/main/develop.md#写插件)。
-
-## 更新开发套件
-
-```bash
-scripts/dev.sh kit-update
-```
-
-在从模板新建的插件仓库中更新套件；本仓库是套件源头，执行时只提示并退出。版本、可选引用和自定义脚本约定见[开发指南](https://github.com/geraldpeng6/wonton-docs/blob/main/develop.md#更新开发套件)。
+多人协作房间需要上游单独的 [excalidraw-room](https://github.com/excalidraw/excalidraw-room) 服务，
+官方镜像不带，本插件不提供（与 excalidraw.com 的自托管说明一致）。
 
 ## 图标
 
-`icon.svg` 是本仓库原创线条图标，按本仓库 MIT 许可证分发，见 [NOTICE](NOTICE)。
+`icon.svg` 用的是 Excalidraw 官方标志（上游仓库 v0.18.1 的 `public/favicon.svg`，excalidraw.com 同款），
+只把圆角白底改成满幅白底、补了正方形 `viewBox`，图形未改动。来源、版权、许可全文和商标说明见 [NOTICE](NOTICE)。
+Excalidraw 的名称与标志是 Excalidraw 项目及其持有者的商标，本插件与其无官方合作关系。
+
+## 镜像
+
+上游官方镜像 `excalidraw/excalidraw`。上游只发布 `latest` 一个标签（另有按提交构建的 `sha-*` 标签，
+正式版本没有独立标签），所以按清单列表摘要固定：`excalidraw/excalidraw:latest@sha256:f7ee…`，
+多架构，amd64 和 arm64 都有。
+
+## 开发与验证
+
+仓库自带开发套件（`scripts/`），用法见[插件开发指南](https://github.com/geraldpeng6/wonton-docs/blob/main/develop.md)。
+检查插件包：
+
+```bash
+scripts/check.sh --official
+```
+
+合并前跑端到端冒烟（装得上、网页打得开、身份、工具、升级保数据、重装保数据）。
+本插件没有服务端数据与用户体系，冒烟中身份和数据两项按 `scripts/smoke-probes.sh` 的声明记 N/A。
+
+## 许可证
+
+- 插件包自身：MIT，见 [LICENSE](LICENSE)。
+- 上游 Excalidraw：MIT；图标等素材的声明见 [NOTICE](NOTICE)。

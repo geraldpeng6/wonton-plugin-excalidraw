@@ -1,14 +1,22 @@
 图标
 ====
 
-`icon.svg` 为本仓库原创，按插件规范的线条风格手写，未用图片模型生成。从模板新建的插件换成自己的图标时，这里按实际情况重写。
+`icon.svg` 取自上游 Excalidraw 仓库 v0.18.1 的 `public/favicon.svg`
+（https://github.com/excalidraw/excalidraw/blob/v0.18.1/public/favicon.svg），即 excalidraw.com 使用的官方标志。
+只做了两处适配：外层补上正方形 `viewBox`，圆角白底改成满幅白底（App 会统一裁成圆角方形，不留透明边）；
+图形本身未改动、未改色。
+
+Excalidraw 的名称与标志是 Excalidraw 项目及其持有者的商标；本插件由社区维护，与 Excalidraw 官方无合作关系。
 
 许可证
 ------
 
+上游 Excalidraw 以 MIT 许可证发布，图标文件随整个仓库按此许可分发
+（https://github.com/excalidraw/excalidraw/blob/v0.18.1/LICENSE）：
+
 MIT License
 
-Copyright (c) 2026 Wonton plugin authors
+Copyright (c) 2020 Excalidraw
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -27,3 +35,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+本插件包自己的许可证见 `LICENSE`。
