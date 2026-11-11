@@ -24,10 +24,10 @@ x-wonton:
   id: com.excalidraw.excalidraw
   version: 0.1.0
   kind: app
-  title: { en: Excalidraw }
+  title: { zh: 手绘白板（Excalidraw）, en: Sketch Whiteboard (Excalidraw) }
   description:
-    zh: 手绘风白板，随手画示意图、流程图和草图
-    en: Hand-drawn style whiteboard for sketches, diagrams and brainstorms
+    zh: 像在白纸上随手画：流程图、示意图、草图都是手绘风格，画完能导出成图片。
+    en: "Like sketching on paper: flowcharts, diagrams and doodles in a hand-drawn style, ready to export as images."
   icon: icon.svg
   notices: [NOTICE]
   screenshots: [screenshots/canvas.jpg, screenshots/welcome.jpg]
