@@ -20,7 +20,7 @@ Excalidraw 的名称与标志是 Excalidraw 项目及其持有者的商标，本
 
 ## 开发与验证
 
-仓库自带开发套件（`scripts/`），用法见[插件开发指南](https://github.com/geraldpeng6/wonton-docs/blob/main/develop.md)。
+仓库自带开发套件（`scripts/`），用法见[插件开发指南](https://github.com/wontonapp/wonton-docs/blob/main/develop.md)。
 检查插件包：
 
 ```bash
